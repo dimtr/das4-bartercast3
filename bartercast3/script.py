@@ -1,4 +1,3 @@
-import math
 import time
 import sqlite3
 import os
@@ -9,7 +8,7 @@ import random
 from dispersy.logger import get_logger
 from dispersy.tests.debugcommunity.node import DebugNode
 from dispersy.tool.lencoder import bz2log
-from dispersy.tool.scenarioscript import ScenarioScript, ScenarioExpon, ScenarioShareDatabase
+from dispersy.tool.scenarioscript import ScenarioScript, ScenarioShareDatabase
 from .community import BarterCommunity
 logger = get_logger(__name__)
 
@@ -37,7 +36,7 @@ def is_eligible_for_walk(self, now, method="unknown"):
 WalkCandidate.is_eligible_for_walk = is_eligible_for_walk
 
 
-class BarterScenarioScript(ScenarioScript, ScenarioExpon, ScenarioShareDatabase):
+class BarterScenarioScript(ScenarioScript, ScenarioShareDatabase):
     def __init__(self, *args, **kargs):
         super(BarterScenarioScript, self).__init__(*args, **kargs)
         self._online_beta = None

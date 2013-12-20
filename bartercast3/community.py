@@ -9,7 +9,6 @@ from httplib import HTTPConnection
 #from random import *
 from time import time
 from zlib import compress
-from igraph import *
 import math
 from .conversion import BarterConversion
 from .database import BarterDatabase
