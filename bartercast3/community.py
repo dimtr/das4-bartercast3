@@ -209,7 +209,7 @@ class BarterCommunity(Community):
        return self._dispersy.take_step(self, self._scenario_script.enable_sync)
 
     def _periodically_compute_score(self):
-        # who am I?
+        # this function computes the scores
         self.my_member.database_id
 
         method = self._scenario_script.rw_intro_strategy
@@ -223,6 +223,7 @@ class BarterCommunity(Community):
             exception = None
             begin = time()
             try:
+            	# you can remove it
                 if method=="global_rep":
                         #            # do expensive calculation here
                   
@@ -282,8 +283,7 @@ class BarterCommunity(Community):
 
                             #logger.info("computed scores %f\n",score)
                             self._scores=dict(zip(neig,score))
-
-
+                #you can remove it, it corresponds to max entropy random walk
                 if method=="local_rep":
                         # do expensive calculation here
                         self.log("Computation of Reputation... Phase 1: accessing the database ")
@@ -354,7 +354,7 @@ class BarterCommunity(Community):
 
 
 
-
+                #this is the best method, it corresponds to the weighted random walk
                 if method=="weights":
                         # do expensive calculation here
                         self.log("Computation of Reputation... Phase 1: accessing the database ")
@@ -389,14 +389,14 @@ class BarterCommunity(Community):
 	                    k=0
                             B=csr_matrix.todok(X)
 	                    for i in neig:
-                                 score[k] =max(B[i,node],B[node,i]) #.todense()
+                                 score[k] =B[node,i] #.todense()
 	                         k=k+1 
 
 
                             self._scores=dict(zip(neig, score))
 
 
-
+                #remove it, it corresponds to metropolis weights
                 if method=="metr":
                         # do expensive calculation here
                         self.log("Computation of Reputation... Phase 1: accessing the database ")
